@@ -18,20 +18,24 @@ public class Tile {
 
     public void setToX () {
 
-       if (value != null) {
+       if (value.equals("")) {
            value = "X";
         }
     }
     public void setToO () {
 
-        if (value != null) {
+        if (value.equals("")) {
             value = "O";
         }
     }
 
     public String toString () {
-        return "[" + getValue() + "]";
-    }
 
+        if (getValue().equals("")) {
+            return "[ ]";
+        } else {
+            return  "[" + getValue() + "]";
+        }
+    }
 
 }

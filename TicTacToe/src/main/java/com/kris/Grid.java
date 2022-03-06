@@ -36,8 +36,10 @@ public class Grid {
 
         if (playerOne == true) {
             grid[x][y].setToX();
+             playerOne = false;
         } else {
             grid[x][y].setToO();
+            playerOne = true;
         }
     }
 
@@ -52,7 +54,83 @@ public class Grid {
         }
     }
 
+    public boolean isEmpty(int x, int y) {
 
+        if (grid[x][y].getValue() == "") {
+           return true;
+        }
+        return false;
+    }
+
+    public boolean youWon () {
+
+        if (grid[0][0].getValue().equals("X") && grid[0][1].getValue().equals("X") &&
+                grid[0][2].getValue().equals("X")) {
+            return true;
+        } else if (grid[0][0].getValue().equals("O") && grid[0][1].getValue().equals("O") &&
+                grid[0][2].getValue().equals("O")) {
+            return true;
+        } else if (grid[1][0].getValue().equals("O") && grid[1][1].getValue().equals("O") &&
+                grid[1][2].getValue().equals("O")) {
+            return true;
+        } else if (grid[1][0].getValue().equals("X") && grid[1][1].getValue().equals("X") &&
+                grid[1][2].getValue().equals("X")) {
+            return true;
+        } else if (grid[2][0].getValue().equals("X") && grid[2][1].getValue().equals("X") &&
+                grid[2][2].getValue().equals("X")) {
+            return true;
+        } else if (grid[2][0].getValue().equals("O") && grid[2][1].getValue().equals("O") &&
+                grid[2][2].getValue().equals("O")) {
+            return true;
+        } else if (grid[0][0].getValue().equals("O") && grid[1][0].getValue().equals("O") &&
+                grid[2][0].getValue().equals("O")) {
+            return true;
+        }  else if (grid[0][0].getValue().equals("X") && grid[1][0].getValue().equals("X") &&
+                grid[2][0].getValue().equals("X")) {
+            return true;
+        } else if (grid[0][1].getValue().equals("X") && grid[1][1].getValue().equals("X") &&
+                grid[2][1].getValue().equals("X")) {
+            return true;
+        } else if (grid[0][1].getValue().equals("O") && grid[1][1].getValue().equals("O") &&
+                grid[2][1].getValue().equals("O")) {
+            return true;
+        } else if (grid[0][2].getValue().equals("X") && grid[1][2].getValue().equals("X") &&
+                grid[2][2].getValue().equals("X")) {
+            return true;
+        } else if (grid[0][2].getValue().equals("O") && grid[1][2].getValue().equals("O") &&
+                grid[2][2].getValue().equals("O")) {
+            return true;
+        } else if (grid[0][0].getValue().equals("O") && grid[1][1].getValue().equals("O") &&
+                grid[2][2].getValue().equals("O")) {
+            return true;
+        } else if (grid[0][0].getValue().equals("X") && grid[1][1].getValue().equals("X") &&
+                grid[2][2].getValue().equals("X")) {
+            return true;
+        } else if (grid[0][2].getValue().equals("X") && grid[1][1].getValue().equals("X") &&
+                grid[2][0].getValue().equals("X")) {
+            return true;
+        } else if (grid[0][2].getValue().equals("O") && grid[1][1].getValue().equals("O") &&
+                grid[2][0].getValue().equals("O")) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean gridFull() {
+
+        for (Tile[] tiles : getGrid()) {
+
+            for (Tile tilesToo : tiles) {
+
+              if (tilesToo.getValue().equals("")) {
+                  return false;
+              }
+
+            }
+
+        }
+        return true;
+    }
 
 
 
